@@ -21,6 +21,8 @@ body
   min-height:100%;
   background-color: #D7F4CB;
   position:relative;
+  display:flex;
+  flex-direction:column;
   
   
 

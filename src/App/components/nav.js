@@ -1,22 +1,27 @@
 import React from "react";
 
 //import styled and helper from the styled-component library
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
 
-const Header = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
+//import basic grid from the styled directory
+import { Row, Column } from "./../styled";
+
+//importing styled twitter component from the styled directory
+import { StyledTwitter, StyledSkype, StyledYoutube } from "./../styled";
+
+const Header = styled(Row)`
   z-index: 999;
   width: 100%;
   min-height: 5%;
   background-color: #ffb6c1;
+  display: flex;
 `;
 
-const NavList = styled.ul`
+const NavList = styled(Column)`
   display: flex;
   list-style-type: none;
+  background-color: grey;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -24,10 +29,16 @@ const StyledNavLink = styled(NavLink)`
   text-decoration: none;
 `;
 
+const Icons = styled(Column)`
+  display: flex;
+  background-color: #98fb98;
+`;
+
 class Nav extends React.Component {
   render() {
     return (
       <Header>
+        {/*Pages*/}
         <NavList>
           <StyledNavLink exact to="/">
             Home
@@ -39,6 +50,12 @@ class Nav extends React.Component {
 
           <StyledNavLink to="/work">Work </StyledNavLink>
         </NavList>
+        {/* Icons*/}
+        <Icons>
+          <StyledTwitter />
+          <StyledSkype />
+          <StyledYoutube />
+        </Icons>
       </Header>
     );
   }
